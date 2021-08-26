@@ -1,0 +1,64 @@
+************************
+
+******DATA MODEL********
+
+************************
+
+Data to be stored in MONGO DB
+
+1. Event ID
+2. Event Description
+3. Package_data(Encrypted)
+
+	Event_ID consists of 
+		1. Event_ID which will also be present in blockchain for reference
+	
+	Event_Description consist of
+		1. Event_Name
+		2. Event_Description which will contain the data of the event
+
+	Package_data(Encrypted) consists of 
+
+		1. Package_Name
+		2. Package_Version
+		3. Date
+
+The JSON format would be
+ {
+   package_data :"encrypted text",
+   event_id : "id",
+   event_name : "name",
+   event_description : "description"
+ }
+
+The Table name should be the IP address(Hashed)
+
+*********************************************
+
+Data to be stored in Blockchain
+
+1. Event ID
+2. Hash of package
+
+	Event_ID consists of event id which is the same in the Mongo DB
+	Hash contains the hash of the package data.
+
+**********************************************
+DATA COVERED IN BLOCKCHAIN
+**********************************************
+
+1. Asset should be the IP address(Hashed for security)
+	Transfer of asset will be from department or project and the event should be recorded in the MONGO DB and the
+reference should be present in MONGO DB so that the querying would become easy.
+	
+2. Stream names are the Package Names 
+	Streams store the hash of the package details and the event ID to track the package
+	
+**********************************************
+DATA COVERED IN MONGO DB
+**********************************************
+
+1. Event collection should be present to track the package or the application
+2. Encrypted Package data should be present 
+3. Event ID should be mapped to package
+

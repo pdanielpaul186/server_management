@@ -1,0 +1,1 @@
+find / -iname *.app > list.txt
